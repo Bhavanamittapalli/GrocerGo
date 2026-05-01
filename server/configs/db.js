@@ -14,9 +14,12 @@ const connectDB = async () => {
         console.warn("Atlas connection failed:", error.message);
         console.log("Starting local in-memory MongoDB...");
 
+        const path = await import('path');
+        const dbPath = path.join(process.cwd(), 'db_data');
+        
         const mongod = await MongoMemoryServer.create({
             instance: {
-                dbPath: 'C:/Users/bhava/Downloads/grocery_full stack_app/Grocergo.cicd/server/db_data', 
+                dbPath: dbPath, 
                 storageEngine: 'wiredTiger',
             },
         });
