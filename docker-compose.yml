@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # Backend Service (Node.js/Express)
+  server:
+    build: ./server # Path to the backend's Dockerfile
+    ports:
+      - "4000:4000" # Map host port 5000 to container port 5000
+    environment:
+      # IMPORTANT: Use the service name 'mongo' instead of 'localhost'
+      MONGO_URI: mongodb://mongo:27017/project-db
+    depends_on:
+      - mongo # Tells the server to wait for the mongo service to start
+
+  # Frontend Service (React/Nginx)
+  client:
+    build: ./client # Path to the frontend's Dockerfile
+    ports:
+      - "3001:80" # Map host port 3000 to the container's Nginx port 80
+
+  # Database Service (MongoDB)
+  mongo:
+    image: mongo:latest # Use the official MongoDB image from Docker Hub
+    ports:
+      - "27017:27017" # Let's you connect with MongoDB Compass if you want
+    volumes:
+      - mongo-data:/data/db # Persist database data
+
+volumes:
+  mongo-data:
