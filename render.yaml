@@ -12,18 +12,18 @@ services:
       - key: JWT_SECRET
         value: "grocergo_secret_123"
       - key: MONGODB_URI
-        placeholder: "Paste MongoDB Atlas URI"
+        value: "REQUIRED_PASTE_HERE"
       - key: SELLER_EMAIL
         value: "admin@grocergo.com"
       - key: SELLER_PASSWORD
         value: "admin123"
       - key: CLOUDINARY_CLOUD_NAME
-        placeholder: "Cloudinary Name"
+        value: "REQUIRED_PASTE_HERE"
       - key: CLOUDINARY_API_KEY
-        placeholder: "Cloudinary API Key"
+        value: "REQUIRED_PASTE_HERE"
       - key: CLOUDINARY_API_SECRET
-        placeholder: "Cloudinary API Secret"
+        value: "REQUIRED_PASTE_HERE"
       - key: STRIPE_SECRET_KEY
-        placeholder: "Stripe Secret Key"
+        value: "REQUIRED_PASTE_HERE"
       - key: STRIPE_WEBHOOK_SECRET
-        placeholder: "Stripe Webhook Secret"
+        value: "REQUIRED_PASTE_HERE"
