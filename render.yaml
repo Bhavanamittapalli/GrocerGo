@@ -5,14 +5,14 @@ services:
     plan: free
     rootDir: server
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: node server.js
     envVars:
       - key: NODE_ENV
         value: production
       - key: JWT_SECRET
-        generateValue: true
+        value: "grocergo_secret_123"
       - key: MONGODB_URI
-        placeholder: "Your MongoDB Atlas URI"
+        placeholder: "Paste MongoDB Atlas URI"
       - key: SELLER_EMAIL
         value: "admin@grocergo.com"
       - key: SELLER_PASSWORD
