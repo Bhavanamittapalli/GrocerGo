@@ -12,6 +12,12 @@ const connectDB = async () => {
         await seedDatabase();
     } catch (error) {
         console.warn("Atlas connection failed:", error.message);
+        
+        if (process.env.NODE_ENV === 'production') {
+            console.error("FATAL: Cannot use MongoMemoryServer in production. Please check your MONGODB_URI and IP Whitelisting.");
+            process.exit(1);
+        }
+
         console.log("Starting local in-memory MongoDB...");
 
         const path = await import('path');
