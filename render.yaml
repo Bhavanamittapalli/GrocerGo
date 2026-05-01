@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: grocergo-backend
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        placeholder: "Your MongoDB Atlas URI"
+      - key: SELLER_EMAIL
+        value: "admin@grocergo.com"
+      - key: SELLER_PASSWORD
+        value: "admin123"
+      - key: CLOUDINARY_CLOUD_NAME
+        placeholder: "Cloudinary Name"
+      - key: CLOUDINARY_API_KEY
+        placeholder: "Cloudinary API Key"
+      - key: CLOUDINARY_API_SECRET
+        placeholder: "Cloudinary API Secret"
+      - key: STRIPE_SECRET_KEY
+        placeholder: "Stripe Secret Key"
+      - key: STRIPE_WEBHOOK_SECRET
+        placeholder: "Stripe Webhook Secret"
